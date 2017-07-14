@@ -1,0 +1,27 @@
+img,#canvas-bar{
+	font-size: 0;
+	line-height: 0;
+}
+
+#canvas-bar {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+}
+
+.show {
+    flex: 2;
+}
+
+.control {
+    flex: 1;
+}
+
+#img-bar {
+    overflow: hidden;
+}
+
+#canvas-bar{
+}

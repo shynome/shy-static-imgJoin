@@ -1,0 +1,15 @@
+{
+  "name": "shy-static-imgJoin",
+  "version": "0.0.2",
+  "description": "用来合并切出来的小图片",
+  "bugs": {
+    "email": "shynome@gmail.com"
+  },
+  "main": "imgJoin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

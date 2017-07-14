@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-hms"
+@dragover.prevent
+@drop.prevent="drop">
+<head>
+	<meta charset="UTF-8">
+	<title>合并切出来的小图片</title>
+	<link rel="stylesheet" href="./imgJoin.css">
+</head>
+<link rel="stylesheet" href="./imgJoin.css">
+<body
+:style="bodyStyle">
+<div class="show" id="canvas-bar">
+	<canvas 
+	id="canvas" 
+	:height="height"
+	:width="width"
+	:style="canvasStyle"
+	></canvas>
+</div>
+<div class="control">
+	<div class="doing">{{doing?'doing....':'把切出来的小图片全部拖到这里来'}}</div>
+	<pre class="json">{{ imgs | json }}</pre>
+	<button
+	@click.prevent = 'toPng'
+	>{{outputing?'正在导出':'导出文件'}}</button>
+	<a :href="pngUrl" :download="`imgJoin-${output}.png`" style="display: none;" >png下载</a>
+	<a :href="jsonUrl" :download="`imgJoin-${output}.json`" style="display: none;" >json下载</a>
+	<label for="showImgBar">
+		<input type="checkbox" v-model="isShowImgBar" id="showImgBar" value="false">
+		点击{{isShowImgBar? "不": ""}}显示图片容器
+	</label>
+	<br>
+	<div 
+	:style="{
+		visibility:isShowImgBar?'visible':'hidden',
+		height:isShowImgBar?'auto':'0',
+		width:isShowImgBar?'auto':'0',
+	}" 
+	id="img-bar">
+	<img 
+		:src="imgsBarUrl" 
+		id="img">
+	<img style="display: none;" :src="canvasOld" id="canvasOld">
+	</div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>
+<script src="./imgJoin.js"></script>
+</html>
